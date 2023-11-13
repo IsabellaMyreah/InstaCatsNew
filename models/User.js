@@ -22,7 +22,8 @@ const User  = db.define('User',{
         allowNull:false,
         require: true
 
-    }
+    }, 
+
 });
 
 module.exports = User

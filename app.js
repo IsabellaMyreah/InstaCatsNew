@@ -4,12 +4,16 @@ const session = require("express-session"); //Criar a sessão do usuário na apl
 const FileStore = require("session-file-store")(session); //Salvar as sessões na pasta session
 const flash = require("express-flash");
 
+
 const app = express();
 
 const conn = require('./db/conn')
 
 // Importar as tabelas
 const User = require('./models/User')
+const Publiation = require('./models/Publication')
+const Like = require('./models/Like')
+const Coment = require('./models/Comment')
 
 // Importar ROTA
 const authRouters = require('./routes/authRouters')
@@ -64,6 +68,7 @@ app.get('/', (req, res) => {
 })
 
 conn
+// .sync({force:true})
 .sync()
 .then(()=>{
   app.listen(3333)
