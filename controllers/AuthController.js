@@ -12,9 +12,9 @@ module.exports = class AuthController {
         return
     }
     static async registerPost(request, response) {
-        const { name, email, password } = request.body;
+        const { name, email, password, passwordconfirm } = request.body;
 
-        await User.create({ name, email, password });
+        await User.create({ name, email, password, passwordconfirm });
 
         response.render('auth/register');
     }
